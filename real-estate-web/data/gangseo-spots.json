@@ -1,0 +1,8 @@
+[
+  { "name": "마곡동", "regionCode": "11500-마곡", "lat": 37.5609, "lng": 126.8266, "img": "https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1200&auto=format&fit=crop" },
+  { "name": "발산동", "regionCode": "11500-발산", "lat": 37.5583, "lng": 126.8379, "img": "https://images.unsplash.com/photo-1487956382158-bb926046304a?q=80&w=1200&auto=format&fit=crop" },
+  { "name": "화곡동", "regionCode": "11500-화곡", "lat": 37.5415, "lng": 126.8432, "img": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=1200&auto=format&fit=crop" },
+  { "name": "방화동", "regionCode": "11500-방화", "lat": 37.5776, "lng": 126.8122, "img": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1200&auto=format&fit=crop" },
+  { "name": "가양동", "regionCode": "11500-가양", "lat": 37.5642, "lng": 126.8531, "img": "https://images.unsplash.com/photo-1502882705085-cb4151e1aa8d?q=80&w=1200&auto=format&fit=crop" }
+]
+

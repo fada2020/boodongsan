@@ -1,0 +1,8 @@
+addReviewers: true
+addAssignees: author
+reviewers:
+  - fada2020
+skipKeywords:
+  - WIP
+
+numberOfReviewers: 1

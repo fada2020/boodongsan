@@ -1,0 +1,20 @@
+# Update GitHub usernames/teams below to your org settings.
+# Requests code owner reviews on relevant path changes.
+
+*                                      @fada2020
+
+# Frontend (pages/components/styles)
+/real-estate-web/app/**                @fada2020
+/real-estate-web/components/**         @fada2020
+/real-estate-web/public/**             @fada2020
+
+# API routes and server logic
+/real-estate-web/app/api/**            @fada2020
+
+# Data and ranking logic
+/real-estate-web/lib/**                @fada2020
+/real-estate-web/data/**               @fada2020
+
+# CI/CD and workflows
+/.github/**                            @fada2020
+/real-estate-web/vercel.json           @fada2020

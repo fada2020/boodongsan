@@ -1,0 +1,42 @@
+name: Web CI
+
+on:
+  push:
+    paths:
+      - 'real-estate-web/**'
+      - '.github/workflows/web-ci.yml'
+  pull_request:
+    paths:
+      - 'real-estate-web/**'
+      - '.github/workflows/web-ci.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: real-estate-web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: real-estate-web/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Typecheck
+        run: npm run typecheck --if-present
+
+      - name: Build
+        run: npm run build
+

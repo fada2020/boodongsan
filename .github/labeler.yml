@@ -1,0 +1,22 @@
+# Labeler rules: applies labels based on changed file paths
+
+area/web:
+  - 'real-estate-web/app/**/*'
+  - 'real-estate-web/components/**/*'
+  - 'real-estate-web/public/**/*'
+
+area/api:
+  - 'real-estate-web/app/api/**/*'
+
+area/data:
+  - 'real-estate-web/lib/**/*'
+  - 'real-estate-web/data/**/*'
+
+area/infra:
+  - '.github/**/*'
+  - 'real-estate-web/vercel.json'
+
+area/docs:
+  - '**/*.md'
+  - 'real-estate-web/docs/**/*'
+
