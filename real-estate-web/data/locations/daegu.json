@@ -1,0 +1,12 @@
+[
+  { "code": "27", "name": "대구광역시", "level": "si" },
+  { "code": "27110", "name": "대구광역시 중구", "level": "gu" },
+  { "code": "27140", "name": "대구광역시 동구", "level": "gu" },
+  { "code": "27170", "name": "대구광역시 서구", "level": "gu" },
+  { "code": "27200", "name": "대구광역시 남구", "level": "gu" },
+  { "code": "27230", "name": "대구광역시 북구", "level": "gu" },
+  { "code": "27260", "name": "대구광역시 수성구", "level": "gu" },
+  { "code": "27290", "name": "대구광역시 달서구", "level": "gu" },
+  { "code": "27710", "name": "대구광역시 달성군", "level": "gu" }
+]
+

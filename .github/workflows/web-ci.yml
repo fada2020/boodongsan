@@ -10,9 +10,17 @@ on:
       - 'real-estate-web/**'
       - '.github/workflows/web-ci.yml'
 
+concurrency:
+  group: web-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      CI: 'true'
+      NODE_OPTIONS: --max-old-space-size=4096
     defaults:
       run:
         working-directory: real-estate-web
@@ -31,12 +39,23 @@ jobs:
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
+      - name: Cache Next.js build cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            real-estate-web/.next/cache
+          key: ${{ runner.os }}-next-${{ hashFiles('real-estate-web/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-next-
+
       - name: Lint
         run: npm run lint --if-present
 
       - name: Typecheck
         run: npm run typecheck --if-present
 
+      - name: Test
+        run: npm run test:run --if-present
+
       - name: Build
         run: npm run build
-

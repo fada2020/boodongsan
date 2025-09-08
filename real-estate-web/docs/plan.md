@@ -6,6 +6,7 @@
 - M3 정책 뉴스(완료): 다중 피드 병합, 소스 탭·키워드·페이지 URL 동기화
 - M4 품질/문서/배포(1주): 테스트, README/Docs, Vercel 파이프라인
 - M5 성능/관측(1주): 캐싱 전략, 에러 핸들링, 로깅/모니터링
+- M6 전월세 통합(1주): 전월세 API 라우트(/api/leases), 검색/상세/토글 UI, 테스트/문서
 
 ## 작업 분류(WBS)
 - 앱 레이아웃/네비게이션, 공통 컴포넌트
@@ -13,6 +14,7 @@
 - /rankings: 기간/지역 필터, 정렬, 표/카드 뷰
 - /api/transactions, /api/hotspots: 파라미터 검증, 포맷 통일, 폴백 데이터
 - /api/news: 병렬 fetch/파싱/중복 제거/정렬, q/src/page 처리, 타임아웃·헤더
+- /api/leases: 전월세 실거래 라우트(정규화, strict 모드), 입력 검증, 응답 스키마 문서화
 - 문서화: API_KEYS, README, .env.example, requirements/plan
 - CI/CD: GitHub Actions(lint/typecheck/build), Vercel 설정
 - 관측: 에러 리포팅/로그, 성능 계측
@@ -55,4 +57,3 @@
 - 고급 필터(가격대/면적/유형), 북마크/알림
 - 지도 시각화 내장 및 히트맵
 - 추천/트렌드 리포트, 이메일/웹푸시 구독
-

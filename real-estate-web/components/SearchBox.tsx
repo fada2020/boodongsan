@@ -1,22 +1,24 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import locations from "@/data/locations.json";
 import useDebounce from "@/lib/useDebounce";
+import { searchLocations } from "@/lib/locations";
 
 type Location = { code: string; name: string; level: "si"|"gu"|"dong" };
 
 export default function SearchBox({ onSelect }: { onSelect?: (loc: Location) => void }) {
   const [q, setQ] = useState("");
   const debounced = useDebounce(q, 250);
-  const results = useMemo(() => {
-    if (!debounced.trim()) return [] as Location[];
-    const k = debounced.trim().toLowerCase();
-    return (locations as Location[])
-      .filter(l => l.name.toLowerCase().includes(k))
-      .slice(0, 8);
-  }, [debounced]);
+  const [results, setResults] = useState<Location[]>([]);
 
-  useEffect(() => { /* side-effects if needed */ }, [debounced]);
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      const list = await searchLocations(debounced, 20);
+      if (!alive) return;
+      setResults(list);
+    })();
+    return () => { alive = false; };
+  }, [debounced]);
 
   return (
     <div className="w-full max-w-xl">

@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type NewsItem = { title: string; link: string; pubDate?: string; source?: string };
 
-export default function NewsList({ initial }: { initial: NewsItem[] }) {
+export default function NewsList({ initial, sourceTag }: { initial: NewsItem[]; sourceTag?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const sp = useSearchParams();
@@ -65,6 +65,14 @@ export default function NewsList({ initial }: { initial: NewsItem[] }) {
 
   const go = (p: number) => updateQuery({ page: Math.max(1, Math.min(totalPages, p)) });
 
+  const hintFromSource = (() => {
+    if (!sourceTag) return undefined;
+    if (sourceTag.startsWith('fallback-error')) return '네트워크 오류 또는 원본 접근 불가로 샘플 데이터를 표시 중입니다.';
+    if (sourceTag.startsWith('fallback-empty-parse')) return '피드 파싱 실패 또는 빈 피드로 샘플 데이터를 표시 중입니다.';
+    if (sourceTag.startsWith('fallback')) return '현재 샘플 데이터를 표시 중입니다.';
+    return undefined;
+  })();
+
   // Correct out-of-range page in URL
   useEffect(() => {
     if (page !== currentPage) updateQuery({ page: currentPage });
@@ -117,13 +125,23 @@ export default function NewsList({ initial }: { initial: NewsItem[] }) {
         />
         <span className="text-sm text-slate-500">{total}건</span>
       </form>
+      {hintFromSource ? (
+        <div className="mb-3 rounded border border-amber-200 bg-amber-50 text-amber-800 text-sm px-3 py-2">
+          {hintFromSource} <span className="opacity-60">({sourceTag})</span>
+        </div>
+      ) : null}
       <div role="region" id="news-panel" aria-labelledby={`tab-${selectedIndex}`}>
-        {total === 0 ? (
+        {initial.length === 0 && total === 0 ? (
           <div className="rounded-lg border p-6 text-sm text-slate-600 bg-slate-50">
             결과가 없습니다. 설정한 RSS 주소를 확인해주세요.
             <div className="mt-2 text-slate-500">
               - RSS/Atom XML이어야 하며, 일반 뉴스 페이지 URL은 동작하지 않습니다.
             </div>
+          </div>
+        ) : null}
+        {initial.length > 0 && total === 0 ? (
+          <div className="rounded-lg border p-6 text-sm text-slate-600 bg-slate-50">
+            필터 조건에 맞는 결과가 없습니다. 키워드나 소스를 변경해 보세요.
           </div>
         ) : null}
         <ul className="space-y-3">

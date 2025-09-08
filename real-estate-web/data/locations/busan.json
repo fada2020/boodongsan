@@ -1,0 +1,18 @@
+[
+  { "code": "26", "name": "부산광역시", "level": "si" },
+  { "code": "26110", "name": "부산광역시 중구", "level": "gu" },
+  { "code": "26140", "name": "부산광역시 서구", "level": "gu" },
+  { "code": "26170", "name": "부산광역시 동구", "level": "gu" },
+  { "code": "26200", "name": "부산광역시 영도구", "level": "gu" },
+  { "code": "26230", "name": "부산광역시 부산진구", "level": "gu" },
+  { "code": "26260", "name": "부산광역시 동래구", "level": "gu" },
+  { "code": "26290", "name": "부산광역시 해운대구", "level": "gu" },
+  { "code": "26320", "name": "부산광역시 사하구", "level": "gu" },
+  { "code": "26350", "name": "부산광역시 금정구", "level": "gu" },
+  { "code": "26380", "name": "부산광역시 강서구", "level": "gu" },
+  { "code": "26410", "name": "부산광역시 연제구", "level": "gu" },
+  { "code": "26440", "name": "부산광역시 수영구", "level": "gu" },
+  { "code": "26470", "name": "부산광역시 사상구", "level": "gu" },
+  { "code": "26500", "name": "부산광역시 기장군", "level": "gu" }
+]
+

@@ -31,6 +31,20 @@ NEWS_RSS_URLS=https://www.korea.kr/rss/policy.xml,https://news.google.com/rss/se
 ```
 > 서버는 RSS와 Atom 형식을 모두 자동 파싱합니다. 일부 피드는 User-Agent/Accept 헤더가 없으면 차단할 수 있으므로 서버에서 적절한 헤더를 추가해 호출합니다.
 
+## 3) 국토교통부 전월세 실거래가(OpenAPI)
+- 매매와 동일한 `MOLIT_API_KEY`를 사용합니다.
+- 샘플 호출
+```
+/api/leases?lawdCd=11680&dealYmd=202409&strict=1
+```
+- 쿼리
+  - `lawdCd`: 시군구 5자리
+  - `dealYmd`: YYYYMM
+  - `pageNo`, `numOfRows`: 페이지/행수
+  - `strict`: 1 권장(키 없음/오류 시 빈 배열 반환)
+- 응답(정규화)
+  - `deposit`(만원), `monthlyRent`(만원), `aptName`, `area(㎡)`, `floor`, `buildYear`, `jibun`, `roadAddress`, `date`, `name`, `regionCode`
+
 ## 3) 로컬에서 테스트
 - `npm install`
 - `npm run dev`
